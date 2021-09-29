@@ -18,16 +18,6 @@ const App = () => {
     let toastProperties = null;
     const id = `toast-${list.length + 1}`;
 
-    if (autoDismiss && !dismissTime) {
-      toastProperties = {
-        id,
-        title: 'Danger',
-        description: 'Add a dismiss time value',
-        backgroundColor: '#d9534f',
-        icon: errorIcon,
-      };
-    }
-
     switch (type) {
       case 'success':
         toastProperties = {
@@ -67,6 +57,16 @@ const App = () => {
         break;
       default:
         setList([]);
+    }
+
+    if (autoDismiss && !dismissTime) {
+      toastProperties = {
+        id,
+        title: 'Danger',
+        description: 'Add a dismiss time value',
+        backgroundColor: '#d9534f',
+        icon: errorIcon,
+      };
     }
 
     setList([...list, toastProperties]);

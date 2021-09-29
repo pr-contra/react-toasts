@@ -7,8 +7,10 @@ const Toast = (props) => {
   const { toastList, setList, position, autoDismiss, dismissTime } = props;
 
   useEffect(() => {
+    if (!autoDismiss || !dismissTime) return;
+
     const interval = setInterval(() => {
-      if (autoDismiss && toastList.length) {
+      if (toastList.length) {
         deleteToast(toastList[0].id);
       }
     }, dismissTime);
